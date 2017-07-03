@@ -13,10 +13,14 @@
 //Variables
 const char* ssid = "weargenius"; // SSID Of the Router
 const char* password = "omisoksbwn";// Access point Password
-const char* host = "192.168.0.1"; //Server IP or URL
-String url = "/test/index.php"; //Page path
+const char* host = "http://api.thingspeak.com"; //Server IP or URL https://api.thingspeak.com/channels/297083/feeds
+String url = "/channels/297083/feeds"; //Page path
 int requestTime=-120000;
 int exitT=1;
+//Static IP Setup
+IPAddress ip(192, 168, 0, 5); // this 3 lines for a fix IP-address
+IPAddress gateway(192, 168, 0, 1);
+IPAddress subnet(255, 255, 255, 0);
 
 // the setup function runs once when you press reset or power the board
 void setup() {
@@ -85,6 +89,7 @@ void initialize(){
   Serial.println();
   Serial.print("Connecting to ");
   Serial.println(ssid);
+  WiFi.config(ip, gateway, gateway, subnet);
   WiFi.begin(ssid, password); // Initiate connection to the Wi-Fi network
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
