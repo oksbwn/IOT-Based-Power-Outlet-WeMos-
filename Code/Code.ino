@@ -13,12 +13,12 @@
 //Variables
 const char* ssid = "weargenius"; // SSID Of the Router
 const char* password = "omisoksbwn";// Access point Password
-const char* host = "http://api.thingspeak.com"; //Server IP or URL https://api.thingspeak.com/channels/297083/feeds
+const char* host = "api.thingspeak.com"; //Server IP or URL https://api.thingspeak.com/channels/297083/feeds
 String url = "/channels/297083/feeds"; //Page path
 int requestTime=-120000;
 int exitT=1;
 //Static IP Setup
-IPAddress ip(192, 168, 0, 5); // this 3 lines for a fix IP-address
+IPAddress ip(192, 168, 0, 6); // this 3 lines for a fix IP-address
 IPAddress gateway(192, 168, 0, 1);
 IPAddress subnet(255, 255, 255, 0);
 
